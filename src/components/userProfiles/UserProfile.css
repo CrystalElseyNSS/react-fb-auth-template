@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.userProfileList {
+    margin: 100px auto;
+    width: 60%;
+}
+
+.userProfile  {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
+
+.header--userList {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 95px;
+}
+
+.user--info {
+    width: 25%;
+    margin-left: 0px;
+}
+
+.input--addCategory {
+    width: 80%;
+}
+
+.icon--userProfile {
+    padding-right: 25px;
+}
+
+.usersHeader {
+    text-align: center;
+    margin: auto;
+    width: 25%;
+}
+
+#editProfileImage {
+    margin-left: 15px;
+}
+
+#btn--backToUsers {
+    margin: 40px 0px;
+}
+
+.userHeader--image {
+    border: 1px solid #ddd;
+    border-radius: 4px;  
+    height: auto;    
+    padding: 5px;
+    width: 150px;
+}
+
+.userList--image {
+    border: 1px solid #ddd;
+    border-radius: 4px;  
+    height: auto;    
+    padding: 5px;
+    width: 75px;
+}
+
+.userHeader--name {
+    font-family: 'Marck Script', cursive;
+    font-size: 60px;
+    padding-top: 40px;
+}
+
+.userProfileHeader {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
+
+.userProfileDetails {
+    margin: 100px auto;
+    width: 80%;
+}
+
+#menuDropdown {
+    margin-top: 1px;
+}

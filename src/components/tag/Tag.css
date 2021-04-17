@@ -1,0 +1,37 @@
+.tagList {
+    margin: auto;
+    width: 60%;
+}
+
+
+
+.tagForm {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    margin: 50px auto;
+    width: 60%;   
+}
+.tag {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
+.tagName {
+    padding-left: 25px;
+}
+
+.input--addTag {
+    width: 80%;
+}
+.icon--tag {
+    padding-right: 25px;
+}
+
+.tagsHeader {
+    text-align: center;
+    margin: auto;
+    width: 25%;
+}
+
+
