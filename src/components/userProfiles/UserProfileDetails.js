@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { UserProfileContext } from "../../providers/UserProfileProvider";
-import { Button, Input, Label } from "reactstrap";
+import { Button, Input } from "reactstrap";
 import { UploadImgContext } from "../../providers/UploadImgProvider";
 import moment from "moment";
 import "./UserProfile.css";
@@ -27,8 +27,8 @@ export const UserProfileDetails = () => {
 
   useEffect(() => {
     getUserProfileById(userProfileId).then(setOneUserProfile);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
   if (!oneUserProfile) {
     return null;
   }

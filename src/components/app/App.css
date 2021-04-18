@@ -1,0 +1,23 @@
+body, main {
+    margin: 0
+}
+
+.app-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -16px;
+  margin-left: -16px;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.post p {
+  white-space: pre-wrap;
+}
+
+.iconImg {
+  max-width: 35px;
+}

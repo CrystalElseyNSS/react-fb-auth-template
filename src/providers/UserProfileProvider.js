@@ -1,26 +1,17 @@
 import React, { useState, useEffect, createContext } from "react";
 import { Spinner } from "reactstrap";
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import "firebase/auth";
 
 export const UserProfileContext = createContext();
 
 export function UserProfileProvider(props) {
-  const apiUrl = "/api/userprofile";
-  const userProfile = JSON.parse(sessionStorage.getItem("userProfile"));
-  const [isLoggedIn, setIsLoggedIn] = useState(userProfile != null);
-  const [isAdmin, setAdmin] = useState(false);
-  const [isActivated, setIsActivated] = useState(false);
-
-  useEffect(() => {
-    if (isLoggedIn && userProfile.userTypeId === 1) {
-      setAdmin(true);
-    }
-  });
-
+  const apiUrl = "https://us-central1-fitc-nashville.cloudfunctions.net";
+  const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
   const [userProfiles, setUserProfiles] = useState([]);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(currentUser != null);
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
+  
   useEffect(() => {
     firebase.auth().onAuthStateChanged((u) => {
       setIsFirebaseReady(true);
@@ -34,13 +25,6 @@ export function UserProfileProvider(props) {
       .then((signInResponse) => getUserProfile(signInResponse.user.uid))
       .then((userProfile) => {
         sessionStorage.setItem("userProfile", JSON.stringify(userProfile));
-        if (userProfile.isActivated) {
-          setIsLoggedIn(true);
-        }else {
-          setIsLoggedIn(false)
-          alert("You've been deactivated. You're dead to us");
-
-        }
       });
   };
 
@@ -51,16 +35,15 @@ export function UserProfileProvider(props) {
       .then(() => {
         sessionStorage.clear();
         setIsLoggedIn(false);
-        setAdmin(false);
       });
   };
 
-  const register = (userProfile, password) => {
+  const register = (gardener, password) => {
     return firebase
       .auth()
-      .createUserWithEmailAndPassword(userProfile.email, password)
-      .then((createResponse) =>
-        saveUser({ ...userProfile, firebaseUserId: createResponse.user.uid })
+      .createUserWithEmailAndPassword(gardener.email, password)
+      .then((createResponse) => 
+        addNewGardener({ ...gardener, firebaseUserId: createResponse.user.uid })
       )
       .then((savedUserProfile) => {
         sessionStorage.setItem("userProfile", JSON.stringify(savedUserProfile));
@@ -94,16 +77,16 @@ export function UserProfileProvider(props) {
     );
   };
 
-  const saveUser = (userProfile) => {
+  const addNewGardener = (gardener) => {
     return getToken().then((token) =>
-      fetch(apiUrl, {
+      fetch(`${apiUrl}/registerNewGardener`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(userProfile),
-      }).then((resp) => resp.json())
+        body: JSON.stringify(gardener),
+      }).then(resp => resp.json())
     );
   };
 
@@ -141,10 +124,10 @@ export function UserProfileProvider(props) {
         register,
         getToken,
         getUserProfileById,
-        isAdmin,
         getUserProfiles,
         userProfiles,
         editUserProfile,
+        currentUser
       }}
     >
       {isFirebaseReady ? (

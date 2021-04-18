@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poiret+One&display=swap');
+
+h1 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
