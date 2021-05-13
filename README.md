@@ -33,14 +33,14 @@ firebase deploy --only functions
 
 1. Create new project in the Firebase console
 2. Authentication > Get Started > Enable Email/Password
-3. ⚙️ > Project Settings >
-        Copy API Key from Project Settings and paste into .env.local file in root folder:
-        REACT_APP_API_KEY=yourapikeyhere
+3. ⚙️ > Project Settings >\
+        Copy API Key from Project Settings and paste into .env.local file in root folder:\
+        REACT_APP_API_KEY=yourapikeyhere\
         > **NOTE:** You may have to restart local server before the app will read your .env.local file
-4. Update Firebase project name in:
-        - .firebaserc
-        - package-lock.json
-        - package.json
+4. Update Firebase project name in:\
+        - .firebaserc\
+        - package-lock.json\
+        - package.json\
         - UserProfileProvider.js (functionsApiUrl)
 5. Firestore Database > Create Database > Start in production mode > Enable
 6. Firestore Database > Rules :
