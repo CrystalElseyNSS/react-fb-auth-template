@@ -18,13 +18,13 @@ npm install firebase
 
 ```bash
 firebase init functions
-    > Use existing project (select project)
+    > Select project
     > JavaScript
-    ESLint > No
-    Overwrite package.json > No
-    Overwrite index.js > No
-    Overwrite .gitignore > No
-    Install dependencies > Yes
+    > ESLint? No
+    > Overwrite package.json? No
+    > Overwrite index.js? No
+    > Overwrite .gitignore? No
+    > Install dependencies? Yes
 firebase deploy --only functions
 ```
 
@@ -35,7 +35,7 @@ firebase deploy --only functions
 2. Authentication > Get Started > Enable Email/Password
 3. ⚙️ > Project Settings >\
         Copy API Key from Project Settings and paste into .env.local file in root folder:\
-        `REACT_APP_API_KEY=yourapikeyhere`\
+        &nbsp;&nbsp;&nbsp;`REACT_APP_API_KEY=yourapikeyhere`\
         **NOTE:** You may have to restart local server before the app will read your .env.local file
 4. Update Firebase project name in:\
         - .firebaserc\
@@ -45,11 +45,11 @@ firebase deploy --only functions
 5. Firestore Database > Create Database > Start in production mode > Enable
 6. Firestore Database > Rules :\
         `service cloud.firestore {`\
-            &nbsp;&nbsp;&nbsp;`match /databases/{database}/documents {`\
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`match /{document=**} {`\
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`allow read, write: if request.auth != null;`\
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`}`\
-            &nbsp;&nbsp;&nbsp;`}`\
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`match /databases/{database}/documents {`\
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`match /{document=**} {`\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`allow read, write: if request.auth != null;`\
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`}`\
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`}`\
         `}`
 7. Firestore Database > Create Collection > "users" > *create fake user*
 8. Upgrade to Blaze plan
