@@ -35,7 +35,7 @@ firebase deploy --only functions
 2. Authentication > Get Started > Enable Email/Password
 3. ⚙️ > Project Settings >\
         Copy API Key from Project Settings and paste into .env.local file in root folder:\
-        REACT_APP_API_KEY=yourapikeyhere\
+        REACT_APP_API_KEY=*yourapikeyhere*\
         > **NOTE:** You may have to restart local server before the app will read your .env.local file
 4. Update Firebase project name in:\
         - .firebaserc\
@@ -43,14 +43,14 @@ firebase deploy --only functions
         - package.json\
         - UserProfileProvider.js (functionsApiUrl)
 5. Firestore Database > Create Database > Start in production mode > Enable
-6. Firestore Database > Rules :
+6. Firestore Database > Rules :/
         ```bash
-        service cloud.firestore {
-            match /databases/{database}/documents {
-                match /{document=**} {
-                allow read, write: if request.auth != null;
-                }
-            }
+        service cloud.firestore {/
+            match /databases/{database}/documents {/
+                match /{document=**} {/
+                allow read, write: if request.auth != null;/
+                }/
+            }/
         }
         ```
 7. Firestore Database > Create Collection > "users" > *create fake user*
