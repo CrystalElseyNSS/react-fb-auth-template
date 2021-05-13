@@ -1,27 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Poiret+One&display=swap');
-
 .authContainer {
     margin-left: 15%;
 }
 
 .authTitle {
-    font-family: 'Didact Gothic', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
     margin-bottom: 10%;
     padding-top: 5%;
     text-align: center;
     width: 100%;
-}
-
-.registerPage {
-    align-items: center;
-    background-image: url('../../assets/garden.JPG');
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
 }
 
 .registerForm {
@@ -41,7 +28,7 @@
 }
 
 .authBtn {
-    background-color: green !important;
+    background-color: #aa1a1a !important;
     border: none !important;
     margin: 2.5% auto 0;
     width: 50%;

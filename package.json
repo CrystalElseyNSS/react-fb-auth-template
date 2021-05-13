@@ -1,5 +1,5 @@
 {
-  "name": "fitc-nash",
+  "name": "react-fb-auth-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "firebase": "^8.4.1",
+    "firebase": "^8.6.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

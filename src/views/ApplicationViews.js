@@ -3,10 +3,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { UserProfileContext } from "../providers/UserProfileProvider";
 import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
-import { UserProfileList } from "../components/userProfiles/UserProfileList";
-import { UserProfileDetails } from "../components/userProfiles/UserProfileDetails";
+import { Home } from "./Home";
 import '../components/app/App.css'
-import Calendar from "../components/calendar/Calendar";
 
 export default function ApplicationViews() {
   const { isLoggedIn } = useContext(UserProfileContext);
@@ -14,14 +12,6 @@ export default function ApplicationViews() {
   return (
     <main className="app">
       <Switch>
-
-        <Route exact path="/">
-          {isLoggedIn ? <Calendar /> : <Redirect to="/login" />}
-        </Route>
-
-        <Route path="/userProfiles/:id" exact>
-          {isLoggedIn ? <UserProfileDetails /> : <Redirect to="/login" />}
-        </Route>
 
         <Route path="/login">
           <Login />
@@ -31,8 +21,8 @@ export default function ApplicationViews() {
           <Register />
         </Route>
 
-        <Route path="/userProfiles" exact>
-          {isLoggedIn ? <UserProfileList /> : <Redirect to="/login" />}
+        <Route exact path="/">
+          {isLoggedIn ? <Home /> : <Redirect to="/login" />}
         </Route>
 
       </Switch>

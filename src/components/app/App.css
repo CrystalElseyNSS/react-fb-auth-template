@@ -10,6 +10,12 @@ body, main {
   margin-left: -16px;
 }
 
+h1 {
+  margin-top: 20% !important;
+  text-align: center;
+  width: 100%;
+}
+
 p {
   line-height: 2rem;
 }

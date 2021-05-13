@@ -7,29 +7,24 @@ import './Auth.css';
 export default function Login() {
   const history = useHistory();
   const { login } = useContext(UserProfileContext);
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const loginSubmit = () => {
+  const loginSubmit = (e) => {
+    e.preventDefault()
     login(email, password)
       .then(() => history.push("/"))
       .catch(() => alert("Invalid email or password"))
       ;
   };
-  const onKeyDown = () => {
-    loginSubmit()
-  }
 
   return (
     <div className="container pt-4">
       <div className="row justify-content-center">
         <Card className="col-sm-12 col-lg-6">
           <CardBody>
-            <Form onSubmit={(e) => {
-              e.preventDefault()
-              loginSubmit()
-              }}>
+          <h3 className="authTitle">Account Sign In</h3>
+          <Form onSubmit={loginSubmit}>
               <fieldset>
                 <FormGroup>
                   <Label for="email">Email</Label>
@@ -40,7 +35,6 @@ export default function Login() {
                       e.preventDefault()
                       setEmail(e.target.value)
                     }}
-                    onKeyDown={(e) => e.keyCode === 13 ? onKeyDown() : null}
                   />
                 </FormGroup>
                 <FormGroup>
@@ -49,15 +43,16 @@ export default function Login() {
                     id="password"
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}
-                    onKeyDown={(e) => e.keyCode === 13 ? onKeyDown() : null}
                   />
                 </FormGroup>
-                <FormGroup>
-                  <Button>Login</Button>
+                <FormGroup className="authBtnContainer">
+                  <Button className="authBtn">Login</Button>
                 </FormGroup>
-                <em>
-                  Not registered? <Link to="register">Register</Link>
-                </em>
+                <div className="authSwitchContainer">
+                  <em className="authSwitchLink">
+                    Not registered? <Link to="register">Register</Link>
+                  </em>
+                </div>
               </fieldset>
             </Form>
           </CardBody>
