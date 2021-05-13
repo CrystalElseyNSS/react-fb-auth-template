@@ -43,13 +43,13 @@ firebase deploy --only functions
         - package.json\
         - UserProfileProvider.js (functionsApiUrl)
 5. Firestore Database > Create Database > Start in production mode > Enable
-6. Firestore Database > Rules :
+6. Firestore Database > Rules :\
         `service cloud.firestore {`\
-            `match /databases/{database}/documents {`\
-                `match /{document=**} {`\
-                    `allow read, write: if request.auth != null;`\
-                `}`\
-            `}`\
+            &nbsp;&nbsp;&nbsp;`match /databases/{database}/documents {`\
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`match /{document=**} {`\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`allow read, write: if request.auth != null;`\
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`}`\
+            &nbsp;&nbsp;&nbsp;`}`\
         `}`
 7. Firestore Database > Create Collection > "users" > *create fake user*
 8. Upgrade to Blaze plan
