@@ -6,7 +6,7 @@ Template for connecting a React app to Firebase Authentication, and saving activ
 ## Installation
 
 ```bash
-git clone git@github.com:leoevents/react-fb-auth-template.git
+git clone git@github.com:CrystalElseyNSS/react-fb-auth-template.git
 cd react-fb-auth-template
 ```
 
